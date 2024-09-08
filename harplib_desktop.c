@@ -21,7 +21,7 @@ void CreateWindow(int width, int height, const char* title) {
 	if (!window.handle) {
 		glfwTerminate();
        	 	printf("Could not create window");
-		return
+		return;
 	}
 
 	glfwMakeContextCurrent(window.handle);
