@@ -9,7 +9,7 @@ WindowHandler window = {0};
 void CreateWindow(int width, int height, const char* title) {
     if(!glfwInit()) {
         printf("Could not initialize GLFW");
-    }
+    } else {
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -20,11 +20,13 @@ void CreateWindow(int width, int height, const char* title) {
 	if (!window.handle) {
 		glfwTerminate();
         printf("Could not create window");
+	} else {
+
+		glfwMakeContextCurrent(window.handle);
+	
+		glViewport(0, 0, width, height);
 	}
-
-	glfwMakeContextCurrent(window.handle);
-
-	glViewport(0, 0, width, height);
+    }
 }
 
 void ResizeWindow(int w, int h) {
