@@ -24,11 +24,11 @@ if( MSVC )
     SET( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /ENTRY:mainCRTStartup" )
 endif()
 
-add_library(harplib STATIC harplib.c)
+add_library(harplib STATIC harplib_desktop.c)
 
 set( TESTER-SRC
         tester.c
-        harplib.c
+        harplib_desktop.c
         harplib.h
 )
 add_executable( tester ${TESTER-SRC} ${GLAD_GL} )

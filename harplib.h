@@ -5,10 +5,14 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <printf.h>
 
-GLFWwindow* setup_window(int width, int height, const char *title);
-bool window_is_open(GLFWwindow* window);
-void terminate_harplib();
-void resize_callback(GLFWwindow* window, int w, int h);
+void CreateWindow(int width, int height, const char* title);
+void ResizeWindow(int w, int h);
+bool WindowShouldClose();
+void CloseWindow();
+void EndDrawing();
+GLFWwindow* GetWindowHandle();
+
 
 #endif //  HARPLIB_H

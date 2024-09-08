@@ -4,20 +4,21 @@
 #include "harplib.h"
 
 int main(){
-    GLFWwindow* window = setup_window(1280, 720, "title");
-    glClearColor( 0.4f, 0.3f, 0.4f, 0.0f );
+    int width = 640;
+    int height = 480;
 
+    CreateWindow(width, height, "title");
+    //glClearColor( 0.4f, 0.3f, 0.4f, 0.0f );
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
+    while (!WindowShouldClose())
     {
-
         //2D Mode
 
         glMatrixMode(GL_PROJECTION);
 
         glLoadIdentity();
 
-        glOrtho(0 , 1280 , 720 , 0 , 0 , 1);
+        glOrtho(0 , width , height , 0 , 0 , 1);
 
         glDisable(GL_DEPTH_TEST);
 
@@ -29,11 +30,8 @@ int main(){
 
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glColor4f(0.5f, 0.125f, 0.125f, 0);
-
-        glfwSwapBuffers(window);
-        glfwSwapInterval(1);
         glfwPollEvents();
     }
-    terminate_harplib();
+    CloseWindow();
+    return 0;
 }
