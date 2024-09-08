@@ -4,8 +4,7 @@
 #include <GLFW/glfw3.h>
 
 #include <stdbool.h>
-#include <stdlib.h>
-#include <printf.h>
+#include <stdio.h>
 
 void CreateWindow(int width, int height, const char* title);
 void ResizeWindow(int w, int h);
