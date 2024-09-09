@@ -12,6 +12,7 @@ int main(){
     while (!WindowShouldClose())
     {
         //2D Mode
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glMatrixMode(GL_PROJECTION);
 
@@ -26,8 +27,6 @@ int main(){
         glLoadIdentity();
 
         glClearColor(0.5f, 0.125f, 0.125f, 0);
-
-        glClear(GL_COLOR_BUFFER_BIT);
 
         glfwSwapBuffers(GetWindowHandle());
         glfwSwapInterval(1);
