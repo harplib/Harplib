@@ -5,12 +5,28 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
+// structs for objects
+typedef struct {
+    float x;
+    float y;
+    float z;
+} Position;
+
+typedef struct {
+    Position position;
+    unsigned int shader_id;
+} GameObject;
+
+void SetObjectShader(GameObject* object, const char* vertex_shader, char* fragment_shader);
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void CreateWindow(int width, int height, const char* title);
 void ResizeWindow(int w, int h);
 bool WindowShouldClose();
 void CloseWindow();
-void EndDrawing();
+void DrawScreen();
 GLFWwindow* GetWindowHandle();
 
 
