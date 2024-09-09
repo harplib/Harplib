@@ -7,9 +7,8 @@ int main(){
     int width = 640;
     int height = 480;
 
-    CreateWindow(width, height, "title");
-    //glClearColor( 0.4f, 0.3f, 0.4f, 0.0f );
-    /* Loop until the user closes the window */
+    CreateWindow(width, height, "tester");
+    //Loop until the program is quit
     while (!WindowShouldClose())
     {
         //2D Mode
@@ -30,6 +29,8 @@ int main(){
 
         glClear(GL_COLOR_BUFFER_BIT);
 
+        glfwSwapBuffers(GetWindowHandle());
+        glfwSwapInterval(1);
         glfwPollEvents();
     }
     CloseWindow();

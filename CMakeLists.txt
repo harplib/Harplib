@@ -5,9 +5,13 @@ set(CMAKE_C_STANDARD 99)
 
 find_package(OpenGL REQUIRED)
 
-set( GLFW_SOURCE_DIR "glfw" )
+include_directories(
+        ${OPENGL_INCLUDE_DIR}
+        ${GLFW_INCLUDE_DIRS}
+        "glfw/include/"
+)
 
-include_directories( ${OPENGL_INCLUDE_DIRS} "glfw/include/")
+set( GLFW_SOURCE_DIR "glfw" )
 
 set( GLFW_BUILD_DOCS OFF CACHE BOOL  "GLFW lib only" )
 set( GLFW_INSTALL OFF CACHE BOOL  "GLFW lib only" )
@@ -32,6 +36,12 @@ set( TESTER-SRC
         harplib.h
 )
 add_executable( tester ${TESTER-SRC} ${GLAD_GL} )
-target_link_libraries( tester ${OPENGL_LIBRARIES} glfw )
+target_link_libraries( tester ${OPENGL_LIBRARIES})
+
+if(WIN32)
+    target_link_libraries(tester ${CMAKE_CURRENT_SOURCE_DIR}/glfw-bin/lib-vc2022/glfw3.lib)
+else()
+    target_link_libraries(tester glfw)
+endif()
 
 set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT GLFW-CMake-starter )
